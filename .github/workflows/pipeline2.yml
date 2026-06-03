@@ -30,7 +30,7 @@
         
         - name: Comandos múltiplos
           run: |
-            echo: "Este é o lab 01 do curso de Github Actions"
+            echo "Este é o lab 01 do curso de Github Actions"
             echo "Workflow executado com sucesso"
             echo "Pronto para os próximos desafios"
 
