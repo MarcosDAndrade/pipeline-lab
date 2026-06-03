@@ -16,17 +16,18 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
+
       - name: Mostrar estrutura .github/workflows
         run: |
           echo "=== ESTRUTURA DO DIRETÓRIO .github/workflows ==="
           ls -la .github/workflows/
           echo ""
-          echo "Total de workflows: $(ls -1 .github/workflows/*.y*ml 2>/dev/null | wc -l)
+          echo "Total de workflows: $(ls -1 .github/workflows/*.y*ml 2>/dev/null | wc -l)"
 
       - name: Elementos obrigatórios do workflow
         run: | 
           echo "=== ELEMENTOS OBRIGATÓRIOS ==="
-          echo "Variável env: " ${{env.NODE_VERSION}}
-          echo "Repositório: " ${{github.repository}}
-          echo "Branch: " ${{github.ref_name}}
-          echo "Actor: " ${{github.actor}}
+          echo "Variável env:  ${{env.NODE_VERSION}}"
+          echo "Repositório:  ${{github.repository}}"
+          echo "Branch:  ${{github.ref_name}}"
+          echo "Actor:  ${{github.actor}}"
