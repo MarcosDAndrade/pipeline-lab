@@ -69,7 +69,7 @@ jobs:
        echo "Deploy concluido"
       
     - name: Deploy para staging
-      if: github.event.input.deploy_environment == 'staging'
+      if: github.event.inputs.deploy_environment == 'staging'
       run: | 
         echo "Deploy para STAGING"
         sleep 2
