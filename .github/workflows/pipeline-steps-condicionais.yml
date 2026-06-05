@@ -45,12 +45,12 @@ jobs:
 
     - name: Steps apenas em PR
       if: github.event_name == 'pull_request'
-      run:
+      run: |
           echo "Este step executa apenas em PULL REQUEST"
           echo "PR #${{github.event.number}}"
 
     - name: Step apenas na main
-      if: github.ref == 'refs/head/main'
+      if: github.ref == 'refs/heads/main'
       run: |
         echo "Este step executa somente na branch main"
     
@@ -64,7 +64,7 @@ jobs:
     - name: Deploy para Development
       if: github.event.inputs.deploy_environment == 'development'
       run: | 
-       echo "Deploy para DEVELOMENT"
+       echo "Deploy para DEVELOPMENT"
        sleep 1
        echo "Deploy concluido"
       
