@@ -1,0 +1,69 @@
+name: Demonstração variáveis de Ambiente
+
+on: 
+  push:
+    branches:
+        - main
+  workflow_dispatch:
+
+
+#Variáveis de ambiente no nível e workflow
+
+env: 
+  WORKFLOW_VAR: "Variável definida no nivel de workflow"
+  AMBIENTE: "producao"
+  VERSAO_APP: "1.0.0"
+
+jobs:
+  demonstracao-variaveis:
+    runs-on: ubuntu-latest
+
+    #Variaveis de ambiente no nivel do JOB
+    env: 
+      JOB_VAR: "Variável definida no nidel de Job"
+      USUARIO: "devops-user"
+
+    steps:
+    - name: Exibir variáveis de workflow
+      run: | 
+        echo "=== Variáveis do workflow ==="
+        echo "Variável WORKFLOW_VAR: ${{ env.WORKFLOW_VAR }}"
+        echo "Ambiente: ${{ env.AMBIENTE }}"
+        echo "Versão da aplicação: ${{ env.VERSAO_APP }}"
+
+    - name: Exibir variáveis do job
+      run: | 
+        echo "== Variáveis do job =="
+        echo "Variável JOB_VAR: ${{ env.JOB_VAR }}"
+        echo "Usuário: ${{ env.USUARIO }}"
+    
+    - name: Exibir variável do step
+      env: 
+        STEP_VAR: "Variável definida no nivel de step"
+        MENSAGEM: "Este é um exemplo prático"
+      
+      run: |
+        echo "=== Variáveis do Step ==="
+        echo "Variável STEP_VAR: ${{ env.STEP_VAR }}"
+        echo "Mensagem: ${{ env.MENSAGEM }}"
+
+    - name: Combinar variáveis de diferentes níveis
+      env: 
+        STEP_ESPECIFICO: "step value"
+      run: |
+        echo "=== Combinação de variáveis ==="
+        echo "Workflow: ${{ env.WORKFLOW_VAR }}"
+        echo "Job: ${{ env.JOB_VAR }}"
+        echo "Step: ${{ env.STEP_ESPECIFICO }}"
+        echo "Todas acessiveis no mesmo contexto!"
+
+    - name: Usar variáveis em comandos práticos   
+      env:
+        NOME_PROJETO: "lab-variáveis"
+        TIMESTAMP: "2025-01-13"
+      run: |
+        echo "=== Exemplo prático ==="
+        echo "Compilando projeto: ${{ env.NOME_PROJETO }}"
+        echo "Data de build: $${{ env.TIMESTAMP }}"
+        echo "Ambiente de deploy: ${{ env.AMBIENTE }}"
+        echo "Versão: ${{ env.VERSION_APP }}"
