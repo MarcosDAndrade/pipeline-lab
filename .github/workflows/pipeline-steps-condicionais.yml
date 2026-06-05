@@ -84,7 +84,7 @@ jobs:
         echo "Deploy concluido"   
 
     - name: Step com múltiplas condições
-      if: github.event_name == 'push' && github.ref == 'refs/head/main' && success()
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main' && success()
       run: |
         echo "Push na main com sucesso nos steps anteriores"
 
