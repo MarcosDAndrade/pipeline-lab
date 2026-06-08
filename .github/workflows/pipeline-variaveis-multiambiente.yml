@@ -69,8 +69,8 @@ jobs:
           sleep 2
           echo "Testes aprovados em STAGING"
 
-   #Job 4: Deploy em produção
-   deploy-production:
+  #Job 4: Deploy em produção
+  deploy-production:
      runs-on: ubuntu-latest
      environment: production
      needs: deploy-staging # só executa aós o deploy-staging
