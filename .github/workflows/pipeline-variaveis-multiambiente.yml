@@ -55,12 +55,6 @@ jobs:
           echo "Debug Mode: ${{vars.DEBUG_MODE}}"
           echo "Max Connections: ${{vars.MAX_CONNECTIONS}}"
 
-      - name: Simular testes de integração
-        run: |
-          echo "Executando testes em ${{vars.ENVIRONMENT}}"
-          echo "URL pública: ${{vars.API_URL}}"
-          sleep 3
-          echo "Deploy em PRODUÇÃO concluído com sucesso!"
 
       - name: Simular testes de integração
         run: |
