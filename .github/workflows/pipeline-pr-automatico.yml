@@ -14,22 +14,22 @@ permissions:
 
 jobs:
     criar-pr-automatico:
+        if: github.ref != 'refs/heads/main'
         runs-on: ubuntu-latest
 
         steps:
         - name: Checkout
           uses: actions/checkout@v4
-          
-        - name: Gerar mudança
-          run: |
-            echo "Atualizado em $(date)" >> log.txt
-
 
         - name: Criar pull request
-          uses: peter-evans/create-pull-request@v6
-          with:
-            commit-message: ${{ github.event.head_commit.message }}
-            title: ${{ github.event.head_commit.message }}
-            body: "PR automático para revisão"
-            branch: auto/workflows-update
-            base: main
+          run: |
+            gh pr create \
+            --title "${{ github.event.head_commit.message }}" \
+            --body "PR automático criado pelo workflow" \
+            --base main \
+            --head "${{ github.ref_name }}"
+            
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+

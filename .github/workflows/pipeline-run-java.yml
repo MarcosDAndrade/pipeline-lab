@@ -9,7 +9,6 @@ jobs:
     Hello-World:
         runs-on: ubuntu-latest
     
-    
         steps:
         - name: baixar repositório atual
           uses: actions/checkout@v4
