@@ -2,6 +2,8 @@ name: Pull Request automatico
 
 on:
   push:
+    branches:
+        - "**"
     paths:
       - '.github/workflows/**'
 
@@ -13,6 +15,11 @@ jobs:
         steps:
         - name: Checkout
           uses: actions/checkout@v4
+          
+        - name: Gerar mudança
+          run: |
+            echo "Atualizado em $(date)" >> log.txt
+
 
         - name: Criar pull request
           uses: peter-evans/create-pull-request@v6
