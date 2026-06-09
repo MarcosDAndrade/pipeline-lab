@@ -28,4 +28,6 @@ jobs:
         - name: Compilar e executar
           run: |
            cd codigoTeste/helloWorld
-           mvn compile
+           echo "=== INICIO EXECUÇÃO ==="
+           mvn compile exec:java
+           echo "=== FIM EXECUÇÃO ==="
