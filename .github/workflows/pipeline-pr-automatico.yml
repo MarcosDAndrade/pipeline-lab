@@ -31,4 +31,4 @@ jobs:
             commit-message: "Novo pull request"
             title: "Adicionando novo PR"
             body: "PR automático para revisão"
-            branch: auto/workflows-update
+            branch: main
