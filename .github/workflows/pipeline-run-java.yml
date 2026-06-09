@@ -29,5 +29,6 @@ jobs:
           run: |
            cd codigoTeste/helloWorld
            echo "=== INICIO EXECUÇÃO ==="
-           mvn compile exec:java.main
+           mvn compile 
+           mvn exec:java -Dexec.mainClass="Main"
            echo "=== FIM EXECUÇÃO ==="
