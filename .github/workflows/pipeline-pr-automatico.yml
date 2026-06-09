@@ -1,0 +1,23 @@
+name: Pull Request automatico
+
+on:
+  push:
+    paths:
+      - '.github/workflows/**'
+
+
+jobs:
+    criar-pr-automatico:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Criar pull request
+          uses: peter-evans/create-pull-request@v6
+          with:
+            commit-message: "Novo pull request"
+            title: "Adicionando novo PR"
+            body: "PR automático para revisão"
+            branch: auto/workflows-update
