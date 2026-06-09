@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs: 
-    #Job 1: Análise de código
+    #Job 1: Análise de código alterado
   code-analysis:
     runs-on: ubuntu-latest
 
